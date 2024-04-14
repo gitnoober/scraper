@@ -1,0 +1,31 @@
+{
+  "Engineering": [
+    {
+      "title": "Lead Data Engineer",
+      "location": "Bengaluru, Karnataka, India",
+      "description": [
+        "Candidates would be leading a team of talented but possibly inexperienced engineers, along with experienced staff engineers who will look to you for overall direction. Typically candidate will combine good communication and people management skills with a strong tech background",
+        "Candidates should show great care in running production systems such as:",
+        "Put in place relevant processes and SOPs such as, on-call SOPs, runbooks, alerting and monitoring systems etc.",
+        "Identify and prioritize tech debt issues so that developer on-call load is kept under check",
+        "On a typical day, candidates would be spending 25% of the time on project management, 25% of the time doing people management (1:1s, discussing career progression with reportees etc) and 50% of the time on requirement gathering, high-level design, low-level design, roadmap etc.",
+        "The candidate should be able to work with staff engineers to design high-performance, maintainable, extensible data processing pipelines to solve business problems. Here are some example business problems:",
+        "\u003e \"We want to reduce the time for productionizing experimental machine learning features to 1 day\"",
+        "\u003e \"We want to design a real-time pipeline that combines data from several sources so that we can monitor the performance of the ops team\".",
+        "They should be able to translate the high-level design into a series of tasks that can be executed by other software engineers working in parallel. The high-level designs are usually design documents consisting of relevant block diagrams, UML diagrams meant to be consumed by other engineering leaders and software engineers.",
+        "They must be able to work with international teams effectively. They will be required to communicate with:",
+        "Clients who may not necessarily be software engineers (marketing teams, business development team etc)",
+        "Software engineers and tech leads to communicate the design in a simple yet accurate language without compromising details."
+      ],
+      "qualification": [
+        "Preferred Qualifications:",
+        "Experience with GCP technologies (BigQuery, DataFlow, PubSub) and DBT",
+        "Strong experience in Java, Python, NodeJS",
+        "Should have led a medium-sized team for at least a few years",
+        "Candidates must be able to understand the trade-off between performance, simplicity, maintainability, and timeline constraints when developing software solutions",
+        "Should have a minimum of 5+ years of experience in data engineering."
+      ],
+      "jobType": "Full-time"
+    }
+  ]
+}

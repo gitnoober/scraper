@@ -1,0 +1,92 @@
+{
+  "Engineering": {
+    "name": "Engineering",
+    "jobs": [
+      {
+        "title": "Software Engineer- Data"
+      },
+      {
+        "title": "Lead Data Engineer"
+      }
+    ]
+  },
+  "Digital Marketing and Content": {
+    "name": "Digital Marketing and Content",
+    "jobs": [
+      {
+        "title": "Telemarketing Borrower Supervisor"
+      }
+    ]
+  },
+  "Risk": {
+    "name": "Risk",
+    "jobs": [
+      {
+        "title": "Credit Analyst Manager"
+      }
+    ]
+  },
+  "Business Operations": {
+    "name": "Business Operations",
+    "jobs": [
+      {
+        "title": "Offline Promotor"
+      },
+      {
+        "title": "Offline Promoter (Jabodetabek)"
+      },
+      {
+        "title": "Offline Promotor"
+      },
+      {
+        "title": "Offline Promotor"
+      }
+    ]
+  },
+  "Business Development": {
+    "name": "Business Development",
+    "jobs": [
+      {
+        "title": "District Sales Manager - Balikpapan"
+      },
+      {
+        "title": "Business Development Manager - Investment"
+      },
+      {
+        "title": "Sales Trainer Officer (Balikpapan)"
+      },
+      {
+        "title": "Insurance Business Development - Employee Benefit"
+      }
+    ]
+  },
+  "People Operations": {
+    "name": "People Operations",
+    "jobs": [
+      {
+        "title": "Procurement Admin"
+      },
+      {
+        "title": "General Affair Admin Intern"
+      },
+      {
+        "title": "Policy \u0026 Procedure (Analyst / Specialist Level)"
+      },
+      {
+        "title": "Legal Associate"
+      },
+      {
+        "title": "Head of Legal"
+      },
+      {
+        "title": "Recruitment Intern"
+      },
+      {
+        "title": "Internal Audit Staff"
+      },
+      {
+        "title": "Legal Assistant Manager/ Manager - Insurance"
+      }
+    ]
+  }
+}
