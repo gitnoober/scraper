@@ -1,7 +1,5 @@
-import Model.Department;
+import FileWriter.FileWriter;
 import Model.Job;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +9,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,9 +20,7 @@ public class CermatiScraper {
 
     public static void main(String[] args) {
         String url = "https://www.cermati.com/karir";
-        setDriverProperty();
-        FirefoxOptions options = new FirefoxOptions();
-        WebDriver driver = new FirefoxDriver(options);
+        WebDriver driver = setupWebDriver();
         LOGGER.info("Accessing URL: {}", url);
         driver.get(url);
         Map<String, List<Job>> departmentMap = new HashMap<>();
@@ -46,7 +40,6 @@ public class CermatiScraper {
                     int cnt = 0;
                     String deptName = "";
                     for (WebElement jobDetailElement : jobDetailElements) {
-                        // Extract and log the text content of each "job-detail" element
                         String jobDetailText = jobDetailElement.getText();
                         LOGGER.info("Job Detail: {}", jobDetailText);
                         if (cnt == 0) {
@@ -62,19 +55,17 @@ public class CermatiScraper {
                 processJobHrefsInParallel(jobDetailMap, departmentMap);
 
                 // Check if there's a next page and navigate to it
-                WebElement nextPageButton = driver.findElement(By.cssSelector("div.career-pagination > button.arrow-icon:not([disabled]) > i.fa.fa-angle-right"));
-                LOGGER.info("Next page button: {}", nextPageButton);
-                break;
-//                if (nextPageButton != null) {
-//                    nextPageButton.click();
-//                    LOGGER.info("Clicked next page button");
-//                } else {
-//                    LOGGER.info("No next page button found. Exiting pagination loop.");
-//                    break;
-//                }
+                try {
+                    WebElement nextPageButton = driver.findElement(By.cssSelector("div.career-pagination > button.arrow-icon:not([disabled]) > i.fa.fa-angle-right"));
+                    nextPageButton.click();
+                    LOGGER.info("Clicked next page button");
+                } catch (NoSuchElementException e) {
+                    LOGGER.info("No next page button found. Exiting pagination loop.");
+                    break;
+                }
             }
             // Write departmentMap to JSON file
-            writeDepartmentMapToJsonFile(departmentMap, "department_data_2.json");
+            FileWriter.writeDepartmentMapToJsonFile(departmentMap, "department_data_final.json");
         } catch (Exception err) {
             LOGGER.error("Error occurred while connecting to URL: {}", url, err);
         } finally {
@@ -110,15 +101,15 @@ public class CermatiScraper {
                 int liTagCnt = 0;
                 String jobLocation = "";
                 String jobType = "";
-                for (WebElement liTag: liTags) {
+                for (WebElement liTag : liTags) {
                     String text = liTag.getText();
                     LOGGER.info("Job Location: {}", text);
-                    if(liTagCnt == 0){
+                    if (liTagCnt == 0) {
                         jobLocation = text;
-                    }else {
+                    } else {
                         jobType = text;
                     }
-                    liTagCnt ++;
+                    liTagCnt++;
                 }
 
                 WebElement descriptionSection = driver.findElement(By.cssSelector("div.column.jobad-container > main.jobad-main.job > div.job-sections > div[itemprop='description'] > section#st-jobDescription"));
@@ -126,7 +117,7 @@ public class CermatiScraper {
                 List<String> jobDescription = new ArrayList<>();
                 for (WebElement pTag : pElements) {
                     String text = pTag.getText().trim();
-                    if (text.isEmpty()){
+                    if (text.isEmpty()) {
                         continue;
                     }
                     LOGGER.info("Job Description: {}", text);
@@ -138,7 +129,7 @@ public class CermatiScraper {
                 List<String> jobQualification = new ArrayList<>();
                 for (WebElement pTag : jobQualificationPTags) {
                     String text = pTag.getText().trim();
-                    if (text.isEmpty()){
+                    if (text.isEmpty()) {
                         continue;
                     }
                     LOGGER.info("Job Qualification: {}", text);
@@ -147,7 +138,6 @@ public class CermatiScraper {
 
                 Job job = new Job(jobTitle, jobLocation, jobDescription, jobQualification, jobType, null);
                 // Check if Department already exists
-//                Department department = departmentMap.computeIfAbsent(departmentName, Department::new);
                 List<Job> jobs = departmentMap.computeIfAbsent(departmentName, k -> new ArrayList<>());
                 // Add the job to the department
                 jobs.add(job);
@@ -169,13 +159,10 @@ public class CermatiScraper {
         }
     }
 
-    public static void writeDepartmentMapToJsonFile(Map<String, List<Job>> departmentMap, String fileName) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter writer = new FileWriter(fileName)) {
-            gson.toJson(departmentMap, writer);
-            LOGGER.info("Department data written to {}", fileName);
-        } catch (IOException e) {
-            LOGGER.error("Error occurred during writing file: {}", fileName);
-        }
+    private static WebDriver setupWebDriver() {
+        System.setProperty("webdriver.firefox.bin", "/opt/homebrew/bin/firefox");
+        System.setProperty("webdriver.gecko.driver", "/Users/priyanshusingh/Downloads/geckodriver");
+        FirefoxOptions options = new FirefoxOptions();
+        return new FirefoxDriver(options);
     }
 }

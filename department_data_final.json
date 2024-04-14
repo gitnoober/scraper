@@ -27,5 +27,76 @@
       ],
       "jobType": "Full-time"
     }
+  ],
+  "Digital Marketing and Content": [
+    {
+      "title": "Digital Marketing Analyst",
+      "location": "Central Jakarta, Central Jakarta City, Jakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Full-time"
+    }
+  ],
+  "Business Operations": [
+    {
+      "title": "Sales Promoter Leader Jabodetabek",
+      "location": "Jakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Contract"
+    },
+    {
+      "title": "Anti Fraud Analyst",
+      "location": "Jakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Full-time"
+    }
+  ],
+  "Business Development": [
+    {
+      "title": "Merchant Relation Officer - Malang",
+      "location": "Malang, Malang City, East Java, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Contract"
+    },
+    {
+      "title": "Junior Sales Trainer",
+      "location": "Pekanbaru, Pekanbaru City, Riau, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Contract"
+    },
+    {
+      "title": "Business Development Associate (Jawa Tengah)",
+      "location": "Yogyakarta, Yogyakarta City, Special Region of Yogyakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Contract"
+    },
+    {
+      "title": "Head of Claim and Placement",
+      "location": "Jakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Full-time"
+    }
+  ],
+  "People Operations": [
+    {
+      "title": "Recruitment Intern",
+      "location": "West Jakarta, Kebonjeruk, West Jakarta City, Jakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Intern"
+    },
+    {
+      "title": "Organizational Development Officer",
+      "location": "Jakarta, Indonesia",
+      "description": [],
+      "qualification": [],
+      "jobType": "Contract"
+    }
   ]
 }
